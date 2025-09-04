@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 #include <stdlib.h>
 
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
     binary_tree_t *new;
 
@@ -12,15 +12,15 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
     if (new == NULL)
         return (NULL);
 
-    if (parent->left != NULL)
+    if (parent->right != NULL)
     {
-        new->left = parent->left;
-        parent->left->parent = new;
+        new->right = parent->right;
+        parent->right->parent = new;
     }
 
-    parent->left = new;
+    parent->right = new;
 
-    new->right = new->right;
+    new->left = new->left;
 
     return (new);
 }
